@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NagarSetu Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#fff8f0",
+                        "on-tertiary-fixed": "#380b0f",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#db85b6",
+                        "secondary-container": "#fe89af",
+                        "on-tertiary-container": "#d78d8d",
+                        "on-primary-fixed": "#3c002b",
+                        "secondary-fixed": "#ffd9e2",
+                        "surface-container-highest": "#f5e1af",
+                        "inverse-primary": "#ffaeda",
+                        "surface-container-low": "#fff2d8",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#732d59",
+                        "on-tertiary-fixed-variant": "#6e3637",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#fbe7b4",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#83737a",
+                        "outline-variant": "#d6c1c9",
+                        "surface-container": "#ffecbe",
+                        "on-background": "#231a00",
+                        "on-surface-variant": "#51434a",
+                        "primary-fixed-dim": "#ffaeda",
+                        "inverse-surface": "#3a2f0c",
+                        "primary-fixed": "#ffd8ea",
+                        "tertiary-container": "#5c2729",
+                        "tertiary-fixed": "#ffdad9",
+                        "on-secondary-fixed": "#3f001c",
+                        "surface-bright": "#fff8f0",
+                        "inverse-on-surface": "#fff0cb",
+                        "secondary-fixed-dim": "#ffb1c7",
+                        "surface-tint": "#8f4572",
+                        "surface-variant": "#f5e1af",
+                        "error-container": "#ffdad6",
+                        "primary": "#450432",
+                        "surface-dim": "#ecd9a7",
+                        "primary-container": "#601d49",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#7f2448",
+                        "tertiary-fixed-dim": "#ffb3b3",
+                        "on-secondary-container": "#781e42",
+                        "secondary": "#9d3c5f",
+                        "on-error": "#ffffff",
+                        "surface": "#fff8f0",
+                        "tertiary": "#411215",
+                        "on-surface": "#231a00",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "unit": "8px",
+                        "container-margin": "20px",
+                        "gutter": "16px",
+                        "stack-lg": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+    </style>
+
+<style id="nagarsetu-admin-reports-style">
+.nagarsetu-admin-reports{background:#fffdf8;border:1px solid #eadfe3;border-radius:16px;padding:20px;box-shadow:0 4px 20px rgba(69,4,50,.04)}
+.nagarsetu-admin-reports h3{color:#450432;font-family:"Playfair Display",serif;font-size:24px;margin:0}
+.nagarsetu-admin-reports-sub{margin:4px 0 16px;color:#6d5d64;font-size:13px}
+#admin-reports-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.nagarsetu-admin-report{border:1px solid #eadfe3;border-radius:14px;padding:16px;background:#fff;min-width:0}
+.nagarsetu-admin-report-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.nagarsetu-admin-report-top b{color:#450432;font-size:16px;display:block}
+.nagarsetu-report-status{display:inline-block;margin-top:6px;padding:3px 8px;border-radius:999px;background:#f6edf1;color:#6d3152;font-size:11px;text-transform:capitalize}
+.nagarsetu-admin-report p{margin:10px 0;color:#51434a;font-size:14px;line-height:1.45;overflow-wrap:anywhere}
+.nagarsetu-admin-report-meta{display:flex;flex-wrap:wrap;gap:8px 14px;color:#776971;font-size:12px;margin-bottom:12px}
+.nagarsetu-admin-report button{border:0;border-radius:9px;background:#450432;color:#fff;padding:8px 12px;font-weight:700;cursor:pointer}
+.nagarsetu-priority-high{color:#ba1a1a;font-weight:700;font-size:12px}.nagarsetu-priority-medium{color:#c45a12;font-weight:700;font-size:12px}.nagarsetu-priority-low{color:#188447;font-weight:700;font-size:12px}
+.nagarsetu-empty{padding:20px;text-align:center;color:#6d5d64;background:#fff8f0;border-radius:12px}
+@media(max-width:900px){#admin-reports-list{grid-template-columns:1fr}}
+</style>
+</head>
+<body class="font-body-md text-body-md antialiased overflow-hidden">
+<!-- SideNavBar -->
+<nav class="h-screen w-64 fixed left-0 top-0 bg-primary shadow-[4px_0_20px_rgba(69,4,50,0.08)] flex flex-col h-full p-4 z-50">
+<div class="flex items-center gap-3 mb-8 px-2">
+<img class="w-10 h-10 rounded-full bg-surface-container object-cover shadow-sm" data-alt="A distinguished circular seal acting as a municipal office emblem, designed with subtle gold accents against a deep plum background. The style is authoritative yet modern, fitting a high-end civic journal aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvU0rubR56cG3dXaqy8UyzHWpZbMPGGsO6KKCp1d8su2r7OFAavw6JA-gmRkc7qcptNTkIqu45DIc6iiLBqqcd4yb7N9e78l7BvnE0rRgOEb2nI-Ss3mPn2xKXN5QRbpntn2fECRtw3rgFhYyHy5ErabWVSe_TGkGWivHK_W6ig4ygBWQOy17xSTfKRC4ffD3LkITNAlsYQhII1QqcxaL7hJx48WLRfiTLm10kz4S8UZp44qmkIS1K"/>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-on-primary">CivicAdmin</h1>
+<p class="font-label-sm text-label-sm text-on-primary/70">Municipal Portal</p>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-2">
+<!-- Clusters (Active for Home/Dashboard) -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary text-on-secondary rounded-lg active:scale-95 transition-transform group" href="dashboard.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group_work</span>
+<span class="font-label-md text-label-md">Clusters</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/70 hover:text-on-primary hover:bg-primary-container/30 transition-colors duration-200 rounded-lg active:scale-95 transition-transform group" href="dashboard.html">
+<span class="material-symbols-outlined">priority_high</span>
+<span class="font-label-md text-label-md">Escalations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/70 hover:text-on-primary hover:bg-primary-container/30 transition-colors duration-200 rounded-lg active:scale-95 transition-transform group" href="metrics.html">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="font-label-md text-label-md">Metrics</span>
+</a>
+</div>
+<div class="mt-auto flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/70 hover:text-on-primary hover:bg-primary-container/30 transition-colors duration-200 rounded-lg" href="javascript:void(0)">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/70 hover:text-on-primary hover:bg-primary-container/30 transition-colors duration-200 rounded-lg" href="javascript:void(0)">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="ml-64 flex flex-col h-screen">
+<!-- TopAppBar -->
+<header class="h-16 sticky top-0 w-full bg-surface border-b border-outline-variant/10 shadow-sm flex justify-between items-center px-8 z-40">
+<div class="flex items-center gap-4 flex-1">
+<span class="font-headline-lg text-headline-lg text-primary font-bold">CivicAdmin Portal</span>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer p-2 rounded-full hover:bg-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer p-2 rounded-full hover:bg-surface-variant">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<div class="flex items-center gap-3 border-l border-outline-variant/30 pl-6 cursor-pointer group">
+<img class="w-9 h-9 rounded-full object-cover ring-2 ring-transparent group-hover:ring-primary/20 transition-all" data-alt="A professional headshot of a civic officer, bright natural lighting, warm cream background, wearing subtle smart-casual attire. The image should feel inviting and trustworthy, matching a high-quality editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSfyrJOeCjwexh6z9YsMXKKEhXcSO4vLsyt1Aa1RRvoVBDl_jCXN3wSfNNLFdLmjajdhyG-MYvjxtLEW3eECkdkfOwtib0HTA3ZuWyHzZVUSXDrGg17ET2cXmUZVFnvOBc8jOpOzOYdsb0bHnQ3MJ0Da59RKN-tRDn0VL1FbNpZcC7s6WNTRdx2PMDSdmzo6LJbbq6lSRlbOImIZrc3NLKCIMhpKhNW6zTHYUEAzxozjZxwr5xb2bD"/>
+<span class="font-label-md text-label-md text-on-surface-variant group-hover:text-primary transition-colors">Officer Profile</span>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<main class="flex-1 overflow-y-auto p-8 flex flex-col gap-8 bg-background">
+<!-- Stat Strip -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Stat Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_4px_20px_rgba(69,4,50,0.04)] border border-surface-container relative overflow-hidden group hover:shadow-[0_4px_20px_rgba(69,4,50,0.08)] transition-shadow">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary">verified</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2">Resolution Quality</p>
+<div class="flex items-end gap-3">
+<h2 id="stat-quality" class="font-display-lg text-display-lg text-primary">88%</h2>
+<span class="font-label-md text-label-md text-secondary bg-secondary-container/30 px-2 py-1 rounded mb-2">+2.4%</span>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_4px_20px_rgba(69,4,50,0.04)] border border-surface-container relative overflow-hidden group hover:shadow-[0_4px_20px_rgba(69,4,50,0.08)] transition-shadow">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary">assignment</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2">Total Open Issues</p>
+<div class="flex items-end gap-3">
+<h2 id="stat-open-issues" class="font-display-lg text-display-lg text-primary">142</h2>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_4px_20px_rgba(69,4,50,0.04)] border border-surface-container relative overflow-hidden group hover:shadow-[0_4px_20px_rgba(69,4,50,0.08)] transition-shadow">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-error">warning</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2">Overdue Count</p>
+<div class="flex items-end gap-3">
+<h2 id="stat-overdue" class="font-display-lg text-display-lg text-error">12</h2>
+<span class="font-label-md text-label-md text-error bg-error-container/50 px-2 py-1 rounded mb-2">-3</span>
+</div>
+</div>
+</div>
+<!-- Map View -->
+<div class="flex-1 bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(69,4,50,0.04)] border border-surface-container overflow-hidden flex flex-col relative min-h-[500px]">
+<div class="p-4 border-b border-surface-container flex justify-between items-center bg-surface-container-lowest/80 backdrop-blur-sm z-10 absolute top-0 w-full">
+<h3 class="font-headline-md text-headline-md text-primary">Active Cluster Map</h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-error"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">High Priority</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-orange-500"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Medium</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-green-500"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Low</span>
+</div>
+</div>
+</div>
+<div id="admin-map" class="w-full h-full bg-surface-variant relative" data-location="Metropolis"></div>
+</div>
+
+<section class="nagarsetu-admin-reports">
+  <p><a href="accountability.html" style="color:#087d71;font-weight:700">Open promise &amp; verification review →</a></p>
+  <h3>Recent Citizen Reports</h3>
+  <p class="nagarsetu-admin-reports-sub">Live submissions from citizens. New complaints appear here immediately.</p>
+  <div id="admin-reports-list"><div class="nagarsetu-empty">Loading citizen reportsâ€¦</div></div>
+</section>
+</main>
+</div>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="../assets/js/api.js"></script>
+</body></html>

@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NagarSetu Metrics Dashboard</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#fff8f0",
+                        "on-tertiary-fixed": "#380b0f",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#db85b6",
+                        "secondary-container": "#fe89af",
+                        "on-tertiary-container": "#d78d8d",
+                        "on-primary-fixed": "#3c002b",
+                        "secondary-fixed": "#ffd9e2",
+                        "surface-container-highest": "#f5e1af",
+                        "inverse-primary": "#ffaeda",
+                        "surface-container-low": "#fff2d8",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#732d59",
+                        "on-tertiary-fixed-variant": "#6e3637",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#fbe7b4",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#83737a",
+                        "outline-variant": "#d6c1c9",
+                        "surface-container": "#ffecbe",
+                        "on-background": "#231a00",
+                        "on-surface-variant": "#51434a",
+                        "primary-fixed-dim": "#ffaeda",
+                        "inverse-surface": "#3a2f0c",
+                        "primary-fixed": "#ffd8ea",
+                        "tertiary-container": "#5c2729",
+                        "tertiary-fixed": "#ffdad9",
+                        "on-secondary-fixed": "#3f001c",
+                        "surface-bright": "#fff8f0",
+                        "inverse-on-surface": "#fff0cb",
+                        "secondary-fixed-dim": "#ffb1c7",
+                        "surface-tint": "#8f4572",
+                        "surface-variant": "#f5e1af",
+                        "error-container": "#ffdad6",
+                        "primary": "#450432",
+                        "surface-dim": "#ecd9a7",
+                        "primary-container": "#601d49",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#7f2448",
+                        "tertiary-fixed-dim": "#ffb3b3",
+                        "on-secondary-container": "#781e42",
+                        "secondary": "#9d3c5f",
+                        "on-error": "#ffffff",
+                        "surface": "#fff8f0",
+                        "tertiary": "#411215",
+                        "on-surface": "#231a00",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "unit": "8px",
+                        "container-margin": "20px",
+                        "gutter": "16px",
+                        "stack-lg": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .ambient-shadow {
+            box-shadow: 0px 4px 20px rgba(69, 4, 50, 0.08);
+        }
+        .ambient-shadow-hover:hover {
+            box-shadow: 0px 2px 10px rgba(69, 4, 50, 0.12);
+            transform: translateY(2px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md min-h-screen antialiased flex">
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden md:flex h-screen w-64 fixed left-0 top-0 flex-col p-4 bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container shadow-[4px_0_20px_rgba(69,4,50,0.08)] z-50">
+<div class="mb-stack-lg flex items-center gap-3 px-4 py-2">
+<span class="material-symbols-outlined text-4xl" data-weight="fill">account_balance</span>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-on-primary">CivicAdmin</h1>
+<p class="font-label-sm text-label-sm text-on-primary/80">Municipal Portal</p>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/70 hover:text-on-primary hover:bg-primary-container/20 hover:bg-primary-container/30 transition-colors duration-200 rounded-lg active:scale-95 transition-transform" href="dashboard.html">
+<span class="material-symbols-outlined">group_work</span>
+<span class="font-label-md text-label-md">Clusters</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/70 hover:text-on-primary hover:bg-primary-container/20 hover:bg-primary-container/30 transition-colors duration-200 rounded-lg active:scale-95 transition-transform" href="dashboard.html">
+<span class="material-symbols-outlined">priority_high</span>
+<span class="font-label-md text-label-md">Escalations</span>
+</a>
+<!-- Active Tab -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary dark:bg-secondary-container text-on-secondary dark:text-on-secondary-container rounded-lg hover:bg-primary-container/30 transition-colors duration-200 active:scale-95 transition-transform" href="metrics.html">
+<span class="material-symbols-outlined" data-weight="fill">bar_chart</span>
+<span class="font-label-md text-label-md">Metrics</span>
+</a>
+</div>
+<div class="mt-auto pt-4 border-t border-on-primary/10 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/70 hover:text-on-primary hover:bg-primary-container/20 hover:bg-primary-container/30 transition-colors duration-200 rounded-lg" href="javascript:void(0)">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/70 hover:text-on-primary hover:bg-primary-container/20 hover:bg-primary-container/30 transition-colors duration-200 rounded-lg" href="javascript:void(0)">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 md:ml-64 flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="h-16 sticky top-0 w-full z-40 bg-surface dark:bg-surface-dim text-primary dark:text-primary-fixed-dim border-b border-outline-variant/10 shadow-sm flex justify-between items-center px-8">
+<div class="flex items-center gap-4">
+<!-- Mobile Menu Icon (hidden on md) -->
+<button class="md:hidden p-2 text-on-surface-variant hover:text-primary transition-colors cursor-pointer transition-all">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg font-bold">CivicAdmin Portal</h2>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer transition-all">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<button class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30 cursor-pointer transition-all hover:opacity-80">
+<img alt="Officer Profile" class="w-full h-full object-cover" data-alt="A sophisticated headshot portrait of a dedicated civic officer in a bright, modern, minimalist office environment. Soft, warm natural lighting emphasizing a professional and welcoming mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCI2rCxD7UkrjHRSdHCZ2U_OyvMnYZ585AC8CAZp1CsXLOLvJNsXIKhA6eYyB16CGNk_Als7T3REWUyyMaSe09jzye-W8t4eyyBYSsyrDtE5Bc3r4H6oi79xUqOnN6QnT72_UZVbpm5ZV4qgkRRbNh-TUX4brZO0vFs6j431jEnxK2CeCjL_6HN7GoXeIiZ55aL3advOUxQrLzqjunRf2yyzdzL715OSmY1ak4gDppjEFkabJ1uRcSR"/>
+</button>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 p-container-margin md:p-8 max-w-[1140px] mx-auto w-full">
+<header class="mb-stack-lg">
+<h1 class="font-display-lg text-display-lg text-primary mb-2">Metrics Overview</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">High-level data and operational insights for the current quarter.</p>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Donut Chart Card (Main Focus) -->
+<article class="md:col-span-8 bg-surface-container-lowest rounded-xl p-6 md:p-8 ambient-shadow ambient-shadow-hover transition-all duration-300 flex flex-col">
+<h2 class="font-headline-md text-headline-md text-primary mb-6 border-b border-outline-variant/10 pb-4">Outcome Breakdown</h2>
+<div class="flex-1 flex flex-col md:flex-row items-center justify-center gap-8">
+<!-- Chart SVG container -->
+<div class="relative w-64 h-64 flex-shrink-0">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<!-- Background circle (optional, subtle) -->
+<circle class="opacity-30" cx="50" cy="50" fill="transparent" r="40" stroke="#f5e1af" stroke-width="12"></circle>
+<!-- Confirmed Fixed (70%) -->
+<!-- Circumference = 2 * pi * 40 = ~251.2 -->
+<!-- 70% of 251.2 = 175.84 -->
+<circle class="outcome-fixed transition-all duration-1000 ease-out hover:stroke-width-[18px] cursor-pointer" cx="50" cy="50" fill="transparent" r="40" stroke="#450432" stroke-dasharray="175.84 251.2" stroke-dashoffset="0" stroke-width="16"></circle>
+<!-- Pending (20%) -->
+<!-- 20% of 251.2 = 50.24. Offset by 70% (-175.84) -->
+<circle class="outcome-pending transition-all duration-1000 ease-out hover:stroke-width-[18px] cursor-pointer" cx="50" cy="50" fill="transparent" r="40" stroke="#9d3c5f" stroke-dasharray="50.24 251.2" stroke-dashoffset="-175.84" stroke-width="16"></circle>
+<!-- Reopened (10%) -->
+<!-- 10% of 251.2 = 25.12. Offset by 90% (-226.08) -->
+<circle class="outcome-reopened transition-all duration-1000 ease-out hover:stroke-width-[18px] cursor-pointer" cx="50" cy="50" fill="transparent" r="40" stroke="#fe89af" stroke-dasharray="25.12 251.2" stroke-dashoffset="-226.08" stroke-width="16"></circle>
+</svg>
+<!-- Center Text -->
+<div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+<span id="metric-fixed" class="font-display-lg text-display-lg text-primary leading-tight">70%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Fixed</span>
+</div>
+</div>
+<!-- Legend -->
+<div class="flex flex-col gap-4 w-full md:w-auto">
+<div class="flex items-center justify-between gap-6 p-3 rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-4 h-4 rounded-full bg-primary"></div>
+<span class="font-label-md text-label-md text-on-background">Confirmed Fixed</span>
+</div>
+<span id="metric-fixed-legend" class="font-headline-md text-headline-md text-primary">70%</span>
+</div>
+<div class="flex items-center justify-between gap-6 p-3 rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-4 h-4 rounded-full bg-secondary"></div>
+<span class="font-label-md text-label-md text-on-background">Pending</span>
+</div>
+<span id="metric-pending" class="font-headline-md text-headline-md text-primary">20%</span>
+</div>
+<div class="flex items-center justify-between gap-6 p-3 rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-4 h-4 rounded-full bg-secondary-container"></div>
+<span class="font-label-md text-label-md text-on-background">Reopened</span>
+</div>
+<span id="metric-reopened" class="font-headline-md text-headline-md text-primary">10%</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Data Cards Column -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<!-- Avg. Resolution Time -->
+<article class="flex-1 bg-surface-container-lowest rounded-xl p-6 ambient-shadow ambient-shadow-hover transition-all duration-300 flex flex-col justify-between group">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Avg. Resolution Time</h3>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-secondary transition-colors">schedule</span>
+</div>
+<div>
+<div class="flex items-baseline gap-2">
+<span id="metric-resolution-hours" class="font-display-lg text-display-lg text-primary">â€”</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 text-sm">Hours from report to verified resolution, across all clusters.</p>
+</div>
+</article>
+<!-- Recurrence Rate -->
+<article class="flex-1 bg-surface-container-lowest rounded-xl p-6 ambient-shadow ambient-shadow-hover transition-all duration-300 flex flex-col justify-between group">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">Recurrence Rate</h3>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-secondary transition-colors">loop</span>
+</div>
+<div>
+<div class="flex items-baseline gap-2">
+<span id="metric-recurrence" class="font-display-lg text-display-lg text-primary">4.2%</span>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-fixed-dim/20 px-2 py-1 rounded-full">+0.8%</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 text-sm">Percentage of closed issues reopened within 30 days.</p>
+</div>
+</article>
+</div>
+</div>
+</main>
+</div>
+<script src="../assets/js/api.js"></script>
+</body></html>

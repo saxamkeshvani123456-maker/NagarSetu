@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+
+<html class="light" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Verify Fix - NagarSetu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#ffd8ea",
+                        "on-tertiary-fixed": "#380b0f",
+                        "primary-fixed-dim": "#ffaeda",
+                        "on-primary-fixed": "#3c002b",
+                        "on-tertiary-fixed-variant": "#6e3637",
+                        "outline-variant": "#d6c1c9",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#3f001c",
+                        "primary": "#450432",
+                        "on-surface-variant": "#51434a",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#fbe7b4",
+                        "surface-container": "#ffecbe",
+                        "surface-container-low": "#fff2d8",
+                        "on-primary-container": "#db85b6",
+                        "on-primary-fixed-variant": "#732d59",
+                        "surface-variant": "#f5e1af",
+                        "on-tertiary-container": "#d78d8d",
+                        "tertiary-fixed-dim": "#ffb3b3",
+                        "inverse-surface": "#3a2f0c",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fff8f0",
+                        "tertiary-container": "#5c2729",
+                        "on-secondary-container": "#781e42",
+                        "secondary-container": "#fe89af",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "outline": "#83737a",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#ffdad9",
+                        "tertiary": "#411215",
+                        "surface-bright": "#fff8f0",
+                        "surface-tint": "#8f4572",
+                        "primary-container": "#601d49",
+                        "secondary": "#9d3c5f",
+                        "surface-container-highest": "#f5e1af",
+                        "surface": "#fff8f0",
+                        "on-secondary-fixed-variant": "#7f2448",
+                        "surface-dim": "#ecd9a7",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#ffaeda",
+                        "secondary-fixed": "#ffd9e2",
+                        "secondary-fixed-dim": "#ffb1c7",
+                        "inverse-on-surface": "#fff0cb",
+                        "on-background": "#231a00",
+                        "on-surface": "#231a00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "unit": "8px",
+                        "stack-sm": "8px",
+                        "gutter": "16px",
+                        "container-margin": "20px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 235, 184, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-safe">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-background z-40 transition-all duration-300" id="topAppBar">
+<div class="flex justify-between items-center px-container-margin py-stack-md max-w-[1140px] mx-auto">
+<button class="text-primary hover:bg-surface-variant/50 transition-colors p-2 rounded-full active:scale-95 duration-200" onclick="history.back()">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary font-bold tracking-tight text-center flex-1">NagarSetu</h1>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A small, circular avatar portrait of a smiling young adult against a warm, soft peach background. The lighting is studio quality, emphasizing approachability and community spirit in a minimal editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7Y_awsiH7HpPcJ-6TLXKeesF_6LrlsHt2OFgVsO3ZaDvpLBXuQ6NkhdJcPXlEwvyO4LfY-57CevMdQZ2NBh6b748slfn_1KADxNxI0bnQMkJoCDLYGY3RWzSxFd7imJubGoz1vYG4_43qHI5zvVM3x7kyUlOm8VcrH9mKIyjBQ31khr58pn8wsZUyiufeKgqW4n6qj5NrxyJ3ZAN8DYfiwjc1-IYEuXnfOXWYj78CetfdZrNCpGOn"/>
+</div>
+</div>
+</header>
+<main class="max-w-[1140px] mx-auto px-container-margin py-stack-lg md:py-12 mb-24">
+<!-- Header Section -->
+<div class="text-center mb-stack-lg">
+<span class="inline-block px-3 py-1 bg-surface-container-high text-primary font-label-md text-label-md rounded-full mb-stack-sm tracking-wide">Verification Request</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-background mb-unit">Was this actually fixed?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto" id="verify-issue-title">As the original reporter, please verify if the issue has been successfully resolved by the municipal team.</p>
+</div>
+<!-- Empty state: shown when there is nothing pending verification -->
+<div class="hidden bg-surface-container-lowest rounded-xl p-stack-lg text-center border border-outline-variant/20" id="verify-empty">
+<span class="material-symbols-outlined text-[40px] text-primary mb-2 block">task_alt</span>
+<h3 class="font-headline-md text-headline-md text-on-background mb-2">Nothing to verify right now</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-md">You don't have any resolved reports awaiting your confirmation.</p>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-full" onclick="location.href='dashboard.html'" type="button">Back to dashboard</button>
+</div>
+<div id="verify-content">
+<!-- Issue Details Bento -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-stack-lg">
+<!-- Before Image -->
+<div class="glass-panel rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(69,4,50,0.08)] col-span-1 md:col-span-1 flex flex-col">
+<div class="p-4 bg-surface-container-low border-b border-outline-variant/30 flex justify-between items-center">
+<h3 class="font-label-md text-label-md text-on-background">Reported Issue (Before)</h3>
+<span class="text-xs font-medium text-on-surface-variant" id="before-date">&nbsp;</span>
+</div>
+<div class="relative flex-1 min-h-[250px]">
+<img alt="Before issue" class="absolute inset-0 w-full h-full object-cover" id="beforeImage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUiYyHLh1sfuz48X6C2DiZ6jpbLB0GIm8kjiyCr9bVlF5Dp9OJ79ogYbucwcfX1bHb4TWecrkw-WuTNQm_Dte3GTKjqficywhCy86mhcKrgJswulxWq2sLLc08r1ck5Yp2GCWPm0sRGO_II1bIdau2MWZ60PGWl6nrZKVwqa9qkf4_uzaU7gD44aHNCQX4mpr21PsDKj0mcWtdrw744P39csKIOIn8YDxz7KDBxmYGFeAM_pmYUTae"/>
+<div class="absolute bottom-3 left-3 px-2 py-1 bg-black/60 backdrop-blur-sm rounded text-white text-[10px] font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> <span id="before-location">Loading locationâ€¦</span>
+                    </div>
+</div>
+</div>
+<!-- After Image -->
+<div class="glass-panel rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(69,4,50,0.08)] col-span-1 md:col-span-2 flex flex-col relative group cursor-pointer" onclick="toggleZoom()">
+<div class="p-4 bg-primary-container text-on-primary-container border-b border-primary/20 flex justify-between items-center">
+<h3 class="font-label-md text-label-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                        Submitted Fix (After)
+                    </h3>
+<span class="text-xs font-medium">Just now</span>
+</div>
+<div class="relative flex-1 min-h-[300px] bg-surface-container">
+<img alt="After fix" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out" data-alt="A clear, eye-level photograph of the exact same residential street location, but the large pothole has been freshly filled with dark, smooth asphalt and compacted flat. Bright daylight, editorial documentary style, warm neutral tones." id="afterImage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB9NP6SjJY1VkmhdPItYRhHrMjrpmLR2BXcTwETnap7Ug-S7vACzzf04KMRkxurvYPE2voRKXCivvO3lXgjzWbmR0iQVMzXxXdd49fWzBAPQKXCiswNZsAFwoRZWFpaTmHojguTvvxCu4J3HCwt8DGbKoHYcV_HOQn1k75FAwRljwpZ4huwFZ0h0gpKE0NKqgONcQUVXvipxOZWTONnWHyf0xbvloa3gv6IPGflhoH4D7_Y76Id0h4"/>
+<!-- Overlay hint for interaction -->
+<div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-white opacity-0 group-hover:opacity-100 bg-black/40 p-2 rounded-full backdrop-blur-sm transition-opacity">zoom_in</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Meta Data Card -->
+<div class="bg-surface-container rounded-xl p-stack-md shadow-[0_4px_20px_rgba(69,4,50,0.05)] mb-stack-lg border border-outline-variant/20 flex flex-wrap gap-stack-lg items-center justify-between">
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-1">RESOLUTION NOTE</span>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-sm">M</div>
+<span class="font-label-md text-label-md text-on-background" id="resolution-note">Resolved by municipal maintenance team.</span>
+</div>
+</div>
+<div class="hidden md:block w-px h-10 bg-outline-variant/30"></div>
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-1">CATEGORY</span>
+<span class="inline-flex items-center gap-1 font-body-md text-body-md text-on-background"><span class="material-symbols-outlined text-[18px] text-primary">construction</span> <span id="category-label">â€”</span></span>
+</div>
+<div class="hidden md:block w-px h-10 bg-outline-variant/30"></div>
+<div class="text-right">
+<span class="block font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-1">REPORTED</span>
+<span class="font-headline-md text-headline-md text-primary" id="resolution-time">â€”</span>
+</div>
+</div>
+<!-- Action Area -->
+<div class="bg-surface-container-lowest rounded-xl p-stack-lg shadow-[0_8px_30px_rgba(69,4,50,0.12)] border border-primary/10 text-center relative overflow-hidden">
+<!-- Decorative background element -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary-fixed/30 rounded-full blur-3xl pointer-events-none"></div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-2 relative z-10">Is the issue resolved?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg max-w-lg mx-auto relative z-10">As the original reporter, please verify if the issue has been successfully resolved by the municipal team.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-gutter relative z-10">
+<!-- No Button -->
+<button class="flex-1 max-w-[200px] flex flex-col items-center justify-center gap-2 py-4 px-6 rounded-xl border-2 border-outline-variant bg-surface hover:bg-surface-variant hover:border-outline text-on-surface-variant transition-all duration-200 active:scale-95 group" id="reject-btn" type="button">
+<span class="material-symbols-outlined text-[32px] group-hover:text-error transition-colors">cancel</span>
+<span class="font-label-md text-label-md">No, Reject</span>
+</button>
+<!-- Yes Button (Primary) -->
+<button class="flex-1 max-w-[280px] flex flex-col items-center justify-center gap-1 py-4 px-6 rounded-xl bg-primary text-on-primary shadow-lg hover:bg-primary/90 transition-all duration-200 active:scale-95 relative overflow-hidden group" id="approve-btn" type="button">
+<!-- Shine effect -->
+<div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-[shine_1.5s]"></div>
+<span class="material-symbols-outlined text-[32px] mb-1">verified</span>
+<span class="font-headline-md text-headline-md leading-none">Yes, Approve</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Hidden on Desktop, Visible on Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-surface-container-low dark:bg-surface-container-high shadow-[0_-4px_20px_rgba(69,4,50,0.08)] z-50 rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-fixed/20 active:scale-90 transition-transform duration-150 p-2 rounded-lg" href="dashboard.html">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-5 py-1 active:scale-90 transition-transform duration-150" href="dashboard.html">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-label-sm text-label-sm mt-1 font-bold">Reports</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-fixed/20 active:scale-90 transition-transform duration-150 p-2 rounded-lg" href="report.html">
+<span class="material-symbols-outlined" data-icon="add_a_photo">add_a_photo</span>
+<span class="font-label-sm text-label-sm mt-1">Report</span>
+</a>
+</nav>
+<style>
+        @keyframes shine {
+            100% { left: 125%; }
+        }
+        .zoomed {
+            transform: scale(1.5);
+            cursor: zoom-out;
+        }
+    </style>
+<script>
+        let isZoomed = false;
+        function toggleZoom() {
+            const img = document.getElementById('afterImage');
+            const icon = document.querySelector('.group-hover\\:opacity-100');
+            
+            isZoomed = !isZoomed;
+            if (isZoomed) {
+                img.classList.add('scale-150');
+                icon.textContent = 'zoom_out';
+            } else {
+                img.classList.remove('scale-150');
+                icon.textContent = 'zoom_in';
+            }
+        }
+
+        // Add scroll effect to top bar
+        window.addEventListener('scroll', () => {
+            const topBar = document.getElementById('topAppBar');
+            if (window.scrollY > 10) {
+                topBar.classList.add('shadow-md', 'bg-surface-container-lowest/90', 'backdrop-blur-md');
+                topBar.classList.remove('bg-background');
+            } else {
+                topBar.classList.remove('shadow-md', 'bg-surface-container-lowest/90', 'backdrop-blur-md');
+                topBar.classList.add('bg-background');
+            }
+        });
+    </script>
+<script src="../assets/js/api.js"></script>
+</body></html>

@@ -1,0 +1,57 @@
+# Netlify Configuration for CivicLens
+# Place this file in your project root
+
+[build]
+  # Install Python dependencies
+  command = "pip install -r backend/requirements.txt && echo 'Build complete'"
+  # Functions directory (serverless backend)
+  functions = "backend"
+  # Publish directory (frontend files)
+  publish = "."
+
+# Environment variables (set these in Netlify Dashboard)
+[build.environment]
+  PYTHON_VERSION = "3.11"
+  PIP_CACHE_DIR = ".netlify/cache/pip"
+
+# Development settings
+[dev]
+  # Run FastAPI backend locally
+  command = "uvicorn app.main:app --app-dir backend --reload --host 127.0.0.1 --port 8000"
+  port = 8000
+  # Also serve frontend
+  framework = "#custom"
+
+# Redirect all /api/* requests to backend
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/main/:splat"
+  status = 200
+  force = false
+
+# Cache headers for static assets
+[[headers]]
+  for = "/*.{js,css,png,jpg,jpeg,gif,svg,webp,woff,woff2}"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# Cache control for HTML
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Optional: Custom error page
+# [[redirects]]
+#   from = "/*"
+#   to = "/index.html"
+#   status = 404

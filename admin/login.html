@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CivicAdmin - Officer Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#ffd8ea",
+                        "on-tertiary-fixed": "#380b0f",
+                        "primary-fixed-dim": "#ffaeda",
+                        "on-primary-fixed": "#3c002b",
+                        "on-tertiary-fixed-variant": "#6e3637",
+                        "outline-variant": "#d6c1c9",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#3f001c",
+                        "primary": "#450432",
+                        "on-surface-variant": "#51434a",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#fbe7b4",
+                        "surface-container": "#ffecbe",
+                        "surface-container-low": "#fff2d8",
+                        "on-primary-container": "#db85b6",
+                        "on-primary-fixed-variant": "#732d59",
+                        "surface-variant": "#f5e1af",
+                        "on-tertiary-container": "#d78d8d",
+                        "tertiary-fixed-dim": "#ffb3b3",
+                        "inverse-surface": "#3a2f0c",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fff8f0",
+                        "tertiary-container": "#5c2729",
+                        "on-secondary-container": "#781e42",
+                        "secondary-container": "#fe89af",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "outline": "#83737a",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#ffdad9",
+                        "tertiary": "#411215",
+                        "surface-bright": "#fff8f0",
+                        "surface-tint": "#8f4572",
+                        "primary-container": "#601d49",
+                        "secondary": "#9d3c5f",
+                        "surface-container-highest": "#f5e1af",
+                        "surface": "#fff8f0",
+                        "on-secondary-fixed-variant": "#7f2448",
+                        "surface-dim": "#ecd9a7",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#ffaeda",
+                        "secondary-fixed": "#ffd9e2",
+                        "secondary-fixed-dim": "#ffb1c7",
+                        "inverse-on-surface": "#fff0cb",
+                        "on-background": "#231a00",
+                        "on-surface": "#231a00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "unit": "8px",
+                        "stack-sm": "8px",
+                        "gutter": "16px",
+                        "container-margin": "20px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body { background: linear-gradient(135deg, #fff8f0 0%, #ffe5ef 100%); min-height: 100vh; }
+    .login-card { backdrop-filter: blur(10px); }
+</style>
+</head>
+<body class="flex items-center justify-center min-h-screen px-4">
+<div class="w-full max-w-md">
+<!-- Logo Section -->
+<div class="text-center mb-stack-lg">
+<div class="flex items-center justify-center gap-3 mb-unit">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-white text-2xl">shield_admin</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary">CivicAdmin</h1>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Municipal Officer Portal</p>
+</div>
+
+<!-- Login Card -->
+<div class="login-card bg-surface-container-lowest rounded-2xl p-stack-lg shadow-xl border border-outline-variant/20">
+<h2 class="font-headline-md text-headline-md text-primary mb-stack-md text-center">Officer Login</h2>
+
+<div class="flex flex-col gap-stack-md">
+<!-- Local demo authentication: no Google account or OAuth credentials required. -->
+<button id="demo-admin-login" class="w-full bg-primary text-on-primary font-label-md text-label-md py-4 px-4 rounded-full flex items-center justify-center gap-3 hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined">shield_admin</span>
+Continue as Demo Admin
+</button>
+<p class="text-center text-label-sm text-on-surface-variant">Hackathon demo mode Â· local authentication</p>
+<div class="rounded-xl border border-outline-variant/30 bg-surface-container-low p-4 text-center text-sm text-on-surface-variant">
+<strong class="text-primary">No real credentials required</strong><br/>
+This CoBuild MVP uses a local demo officer session.
+</div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<p class="text-center text-label-sm text-on-surface-variant mt-stack-lg">
+<a href="../citizen/welcome.html" class="text-primary hover:underline">Go to Citizen Portal</a>
+</p>
+</div>
+
+<script src="../assets/js/api.js"></script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+﻿<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>NagarSetu - Report an Issue</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "primary-fixed": "#ffd8ea",
+                            "on-tertiary-fixed": "#380b0f",
+                            "primary-fixed-dim": "#ffaeda",
+                            "on-primary-fixed": "#3c002b",
+                            "on-tertiary-fixed-variant": "#6e3637",
+                            "outline-variant": "#d6c1c9",
+                            "error": "#ba1a1a",
+                            "on-secondary-fixed": "#3f001c",
+                            "primary": "#450432",
+                            "on-surface-variant": "#51434a",
+                            "on-error": "#ffffff",
+                            "on-error-container": "#93000a",
+                            "surface-container-high": "#fbe7b4",
+                            "surface-container": "#ffecbe",
+                            "surface-container-low": "#fff2d8",
+                            "on-primary-container": "#db85b6",
+                            "on-primary-fixed-variant": "#732d59",
+                            "surface-variant": "#f5e1af",
+                            "on-tertiary-container": "#d78d8d",
+                            "tertiary-fixed-dim": "#ffb3b3",
+                            "inverse-surface": "#3a2f0c",
+                            "on-tertiary": "#ffffff",
+                            "background": "#fff8f0",
+                            "tertiary-container": "#5c2729",
+                            "on-secondary-container": "#781e42",
+                            "secondary-container": "#fe89af",
+                            "on-secondary": "#ffffff",
+                            "error-container": "#ffdad6",
+                            "outline": "#83737a",
+                            "surface-container-lowest": "#ffffff",
+                            "tertiary-fixed": "#ffdad9",
+                            "tertiary": "#411215",
+                            "surface-bright": "#fff8f0",
+                            "surface-tint": "#8f4572",
+                            "primary-container": "#601d49",
+                            "secondary": "#9d3c5f",
+                            "surface-container-highest": "#f5e1af",
+                            "surface": "#fff8f0",
+                            "on-secondary-fixed-variant": "#7f2448",
+                            "surface-dim": "#ecd9a7",
+                            "on-primary": "#ffffff",
+                            "inverse-primary": "#ffaeda",
+                            "secondary-fixed": "#ffd9e2",
+                            "secondary-fixed-dim": "#ffb1c7",
+                            "inverse-on-surface": "#fff0cb",
+                            "on-background": "#231a00",
+                            "on-surface": "#231a00"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                    },
+                    "spacing": {
+                            "stack-md": "16px",
+                            "stack-lg": "32px",
+                            "unit": "8px",
+                            "stack-sm": "8px",
+                            "gutter": "16px",
+                            "container-margin": "20px"
+                    },
+                    "fontFamily": {
+                            "label-md": ["Inter"],
+                            "display-lg": ["Playfair Display"],
+                            "headline-lg": ["Playfair Display"],
+                            "headline-lg-mobile": ["Playfair Display"],
+                            "body-md": ["Inter"],
+                            "label-sm": ["Inter"],
+                            "body-lg": ["Inter"],
+                            "headline-md": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                            "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                            "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                            "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500"}],
+                            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Camera overlay gradient */
+        .camera-overlay {
+            background: linear-gradient(180deg, rgba(35,26,0,0) 60%, rgba(35,26,0,0.8) 100%);
+        }
+
+        /* Subtle ambient shadow for elevated elements */
+        .ambient-shadow {
+            box-shadow: 0 4px 20px rgba(69, 4, 50, 0.08);
+        }
+        
+        /* Interactive depth */
+        .interactive-depth:active {
+            box-shadow: 0 2px 10px rgba(69, 4, 50, 0.04);
+            transform: translateY(2px);
+        }
+        
+        /* Custom scrollbar for chips */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>#report-map{min-height:100%;z-index:0}.leaflet-control-attribution{font-size:9px}</style></head>
+<body class="bg-background text-on-background min-h-screen flex flex-col relative pb-[120px] md:pb-0">
+<!-- Top Navigation (Transactional/Task-focused, so no global nav shell, just a contextual header) -->
+<header class="w-full top-0 sticky z-50 bg-background/90 backdrop-blur-md border-b border-surface-variant/30 px-container-margin py-stack-md flex justify-between items-center max-w-[1140px] mx-auto">
+<button id="close-report-btn" class="flex items-center text-primary active:scale-95 duration-200 hover:bg-surface-variant rounded-full p-2 transition-colors" aria-label="Close and return to dashboard">
+<span class="material-symbols-outlined text-[24px]">close</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary text-center flex-1 ml-[-24px]">Report Issue</h1>
+<!-- Invisible spacer for centering -->
+<div class="w-[24px]"></div>
+</header>
+<main class="flex-1 w-full max-w-[1140px] mx-auto px-container-margin pt-stack-md pb-stack-lg flex flex-col gap-stack-lg">
+<!-- Camera / Image Capture Section -->
+<section class="relative w-full h-[530px] md:h-[400px] rounded-xl overflow-hidden bg-surface-variant flex flex-col items-center justify-center group">
+<!-- Photo preview (shown once a photo is captured or picked) -->
+<img id="issue-photo-preview" alt="Selected issue photo" class="hidden absolute inset-0 w-full h-full object-cover z-0"/>
+<!-- Empty state -->
+<div id="issue-photo-empty" class="absolute inset-0 flex flex-col items-center justify-center gap-2 text-on-surface-variant z-0">
+<span class="material-symbols-outlined text-5xl">photo_camera</span>
+<p class="font-label-md text-label-md">No photo yet</p>
+</div>
+<!-- Camera UI Overlays -->
+<div class="absolute inset-0 camera-overlay z-10 pointer-events-none"></div>
+<div class="absolute top-4 right-4 z-20 flex gap-2">
+<button id="remove-photo-btn" type="button" class="hidden w-10 h-10 rounded-full bg-surface/20 backdrop-blur-md flex items-center justify-center text-white active:scale-90 transition-transform" aria-label="Remove photo">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+<!-- Capture Controls -->
+<div class="absolute bottom-6 left-0 w-full flex justify-center items-center z-20 px-6 gap-6">
+<!-- Gallery picker -->
+<label for="issue-image" class="w-12 h-12 rounded-full bg-surface/20 backdrop-blur-md flex items-center justify-center text-white active:scale-90 transition-transform cursor-pointer" aria-label="Choose from gallery">
+<span class="material-symbols-outlined">photo_library</span>
+</label>
+<!-- Shutter Button: opens the real live camera -->
+<button id="open-camera-btn" type="button" class="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm p-1 active:scale-95 transition-transform">
+<div class="w-full h-full rounded-full bg-white flex items-center justify-center shadow-lg"><span class="material-symbols-outlined text-primary">add_a_photo</span></div>
+</button>
+<input id="issue-image" class="hidden" type="file" accept="image/jpeg,image/png,image/webp,image/tiff,image/heic,image/heif" />
+<div class="w-12 h-12"></div> <!-- Spacer for symmetry -->
+</div>
+</section>
+<div id="image-authenticity-status" class="hidden -mt-4 rounded-lg border border-outline-variant/30 bg-surface-container-low p-3 text-sm text-on-surface-variant"></div>
+<!-- Optional video: supplementary context only, does not replace the required photo -->
+<section class="flex flex-col gap-unit">
+<h2 class="font-label-md text-label-md text-on-surface-variant">Add a video (optional)</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant/80">Helpful for showing motion, flow, or scale â€” the photo above is still what gets verified.</p>
+<div class="relative w-full rounded-xl overflow-hidden bg-surface-variant border border-outline-variant/20">
+<video id="issue-video-preview" class="hidden w-full max-h-64 object-cover" controls=""></video>
+<div id="issue-video-empty" class="flex flex-col items-center justify-center gap-2 text-on-surface-variant py-6">
+<label for="issue-video" class="flex items-center gap-2 px-4 py-2 rounded-full bg-surface text-on-surface-variant border border-outline-variant hover:bg-surface-variant/50 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">videocam</span>
+<span class="font-label-sm text-label-sm">Choose a video</span>
+</label>
+</div>
+<button id="remove-video-btn" type="button" class="hidden absolute top-2 right-2 w-9 h-9 rounded-full bg-surface/80 backdrop-blur-md flex items-center justify-center text-on-surface active:scale-90 transition-transform" aria-label="Remove video">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+<input id="issue-video" class="hidden" type="file" accept="video/mp4,video/webm,video/quicktime"/>
+<p id="issue-video-status" class="hidden font-label-sm text-label-sm text-on-surface-variant"></p>
+</section>
+<!-- Category Selection (Chips) -->
+<section class="flex flex-col gap-unit">
+<h2 class="font-label-md text-label-md text-on-surface-variant">What are you reporting?</h2>
+<div class="flex overflow-x-auto hide-scrollbar gap-2 pb-2 -mx-container-margin px-container-margin md:mx-0 md:px-0">
+<!-- Selected State Example -->
+<button class="flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-container text-on-secondary-container border border-secondary-container transition-colors category-chip">
+<span class="material-symbols-outlined filled text-[18px]">maps_ar</span>
+<span class="font-label-sm text-label-sm">Pothole</span>
+</button>
+<!-- Unselected States -->
+<button class="flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-full bg-surface text-on-surface-variant border border-outline-variant hover:bg-surface-variant/50 transition-colors category-chip">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+<span class="font-label-sm text-label-sm">Garbage</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-full bg-surface text-on-surface-variant border border-outline-variant hover:bg-surface-variant/50 transition-colors category-chip">
+<span class="material-symbols-outlined text-[18px]">lightbulb</span>
+<span class="font-label-sm text-label-sm">Streetlight</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-full bg-surface text-on-surface-variant border border-outline-variant hover:bg-surface-variant/50 transition-colors category-chip">
+<span class="material-symbols-outlined text-[18px]">park</span>
+<span class="font-label-sm text-label-sm">Park Issue</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-full bg-surface text-on-surface-variant border border-outline-variant hover:bg-surface-variant/50 transition-colors category-chip">
+<span class="material-symbols-outlined text-[18px]">water_drop</span>
+<span class="font-label-sm text-label-sm">Water Leak</span>
+</button>
+<button id="custom-category-chip" type="button" class="flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-full bg-surface text-on-surface-variant border border-outline-variant hover:bg-surface-variant/50 transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span class="font-label-sm text-label-sm">Other</span>
+</button>
+</div>
+<input id="custom-category-input" type="text" placeholder="Type the issue typeâ€¦" maxlength="60" class="hidden w-full mt-1 bg-surface-container rounded-lg border-2 border-outline-variant/30 p-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary/50 focus:ring-0 placeholder:text-outline"/>
+</section>
+<!-- Description Field -->
+<section class="flex flex-col gap-unit">
+<label class="font-label-md text-label-md text-on-surface-variant" for="issue-description">Add details (optional)</label>
+<div class="relative">
+<textarea class="w-full bg-surface-container rounded-lg border-2 border-outline-variant/30 p-4 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary/50 focus:ring-0 placeholder:text-outline resize-none transition-colors" id="issue-description" placeholder="Describe the issue to help city workers locate and fix it faster..." rows="3"></textarea>
+</div>
+</section>
+<!-- Map Preview & Location -->
+<section class="flex flex-col gap-unit">
+<h2 class="font-label-md text-label-md text-on-surface-variant">Confirm Location</h2>
+<input id="issue-address-input" type="text" placeholder="Or type an address / landmark instead" class="w-full bg-surface-container rounded-lg border-2 border-outline-variant/30 p-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary/50 focus:ring-0 placeholder:text-outline"/>
+<div class="relative w-full h-48 rounded-xl overflow-hidden bg-surface-variant ambient-shadow border border-outline-variant/20">
+<!-- Map Placeholder -->
+<div id="report-map" class="absolute inset-0 z-0"></div>
+<!-- Locate Me Button -->
+<button id="locate-me-btn" class="absolute bottom-3 right-3 w-10 h-10 bg-surface rounded-full flex items-center justify-center ambient-shadow text-primary active:scale-95 transition-transform z-20">
+<span class="material-symbols-outlined text-[20px]">my_location</span>
+</button>
+</div>
+<p id="location-status" class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-[16px]">my_location</span>
+                Locating your current positionâ€¦
+            </p>
+</section>
+</main>
+<!-- Bottom Action Bar (Fixed Submit Button) -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-low/95 backdrop-blur-md p-container-margin z-40 border-t border-outline-variant/20">
+<div class="max-w-[1140px] mx-auto flex gap-4">
+<button id="submit-report" class="flex-1 bg-primary text-on-primary font-label-md text-label-md py-4 rounded-full flex items-center justify-center gap-2 ambient-shadow interactive-depth transition-all" type="button">
+                Submit Report
+                <span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</div>
+<script>
+            // Close button handler
+            document.getElementById('close-report-btn')?.addEventListener('click', function() {
+              if(confirm('Discard this report?')) {
+                location.href='dashboard.html';
+              }
+            });
+
+            // Category chip selection
+            document.querySelectorAll('.category-chip').forEach(function(chip){
+              chip.addEventListener('click', function(){
+                document.querySelectorAll('.category-chip').forEach(function(c){
+                  c.classList.remove('bg-secondary-container','text-on-secondary-container','border-secondary-container');
+                  c.classList.add('bg-surface','text-on-surface-variant','border-outline-variant');
+                });
+                chip.classList.remove('bg-surface','text-on-surface-variant','border-outline-variant');
+                chip.classList.add('bg-secondary-container','text-on-secondary-container','border-secondary-container');
+              });
+            });
+            </script><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="../assets/js/api.js"></script>
+</body></html>

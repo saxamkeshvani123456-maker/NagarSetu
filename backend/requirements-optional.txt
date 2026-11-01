@@ -1,0 +1,12 @@
+# Optional. C2PA content-provenance inspection.
+# This package ships prebuilt wheels for most platforms, but on some
+# systems (older Python versions, less common OS/arch combos) it may
+# fail to install because no prebuilt wheel is available.
+#
+# The app works fully without it: backend/app/authenticity.py catches
+# the ImportError and reports c2pa_status: "unavailable" instead of
+# failing the report/resolution upload.
+#
+# Install separately if you want C2PA support:
+#   pip install -r backend/requirements-optional.txt
+c2pa-python>=0.7,<1

@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NagarSetu - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#ffd8ea",
+                      "on-tertiary-fixed": "#380b0f",
+                      "primary-fixed-dim": "#ffaeda",
+                      "on-primary-fixed": "#3c002b",
+                      "on-tertiary-fixed-variant": "#6e3637",
+                      "outline-variant": "#d6c1c9",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed": "#3f001c",
+                      "primary": "#450432",
+                      "on-surface-variant": "#51434a",
+                      "on-error": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "surface-container-high": "#fbe7b4",
+                      "surface-container": "#ffecbe",
+                      "surface-container-low": "#fff2d8",
+                      "on-primary-container": "#db85b6",
+                      "on-primary-fixed-variant": "#732d59",
+                      "surface-variant": "#f5e1af",
+                      "on-tertiary-container": "#d78d8d",
+                      "tertiary-fixed-dim": "#ffb3b3",
+                      "inverse-surface": "#3a2f0c",
+                      "on-tertiary": "#ffffff",
+                      "background": "#fff8f0",
+                      "tertiary-container": "#5c2729",
+                      "on-secondary-container": "#781e42",
+                      "secondary-container": "#fe89af",
+                      "on-secondary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "outline": "#83737a",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-fixed": "#ffdad9",
+                      "tertiary": "#411215",
+                      "surface-bright": "#fff8f0",
+                      "surface-tint": "#8f4572",
+                      "primary-container": "#601d49",
+                      "secondary": "#9d3c5f",
+                      "surface-container-highest": "#f5e1af",
+                      "surface": "#fff8f0",
+                      "on-secondary-fixed-variant": "#7f2448",
+                      "surface-dim": "#ecd9a7",
+                      "on-primary": "#ffffff",
+                      "inverse-primary": "#ffaeda",
+                      "secondary-fixed": "#ffd9e2",
+                      "secondary-fixed-dim": "#ffb1c7",
+                      "inverse-on-surface": "#fff0cb",
+                      "on-background": "#231a00",
+                      "on-surface": "#231a00"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "16px",
+                      "stack-lg": "32px",
+                      "unit": "8px",
+                      "stack-sm": "8px",
+                      "gutter": "16px",
+                      "container-margin": "20px"
+              },
+              "fontFamily": {
+                      "label-md": ["Inter"],
+                      "display-lg": ["Playfair Display"],
+                      "headline-lg": ["Playfair Display"],
+                      "headline-lg-mobile": ["Playfair Display"],
+                      "body-md": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-md": ["Playfair Display"]
+              },
+              "fontSize": {
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: #FFEBB8; /* Warm neutral cream base */
+            color: #231a00;
+        }
+        .editorial-shadow {
+            box-shadow: 0 4px 20px rgba(69, 4, 50, 0.08);
+        }
+        .interactive-element:active {
+            box-shadow: 0 2px 10px rgba(69, 4, 50, 0.12);
+            transform: translateY(2px);
+        }
+        
+        /* Skeleton Pulse Animation */
+        @keyframes warmPulse {
+            0% { background-color: #FFEBB8; }
+            50% { background-color: #EA9D9D; opacity: 0.3; }
+            100% { background-color: #FFEBB8; }
+        }
+        .skeleton-loading {
+            animation: warmPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        #recent-reports ~ .grid { width: 100%; min-width: 0; }
+        #recent-reports ~ .grid > article { min-width: 0; width: 100%; overflow: hidden; }
+        #recent-reports ~ .grid > article h4,
+        #recent-reports ~ .grid > article p { overflow-wrap: anywhere; word-break: normal; white-space: normal; }
+        @media (max-width: 767px) {
+            #recent-reports ~ .grid { grid-template-columns: minmax(0, 1fr) !important; }
+            #recent-reports ~ .grid > article { grid-column: 1 / -1 !important; }
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen pb-24 md:pb-0">
+<!-- TopAppBar (Web) -->
+<header class="hidden md:flex relative bg-background w-full top-0 sticky items-center px-container-margin py-stack-md max-w-[1140px] mx-auto z-50">
+<h1 class="absolute left-1/2 -translate-x-1/2 font-headline-lg text-headline-lg text-primary tracking-tight">NagarSetu</h1>
+<div class="ml-auto flex items-center gap-8">
+<nav class="flex items-center gap-2">
+<a class="font-label-md text-label-md text-primary font-bold hover:bg-surface-variant/50 transition-colors px-3 py-2 rounded-lg" href="dashboard.html">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-variant/50 transition-colors px-3 py-2 rounded-lg" href="#recent-reports">Reports</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-variant/50 transition-colors px-3 py-2 rounded-lg" href="report.html">Report Issue</a>
+<a id="citizen-verification-link-static" class="font-label-md text-label-md text-on-surface-variant hover:bg-surface-variant/50 transition-colors px-3 py-2 rounded-lg relative" href="verify-fix.html">Verification</a>
+</nav>
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden cursor-pointer editorial-shadow">
+<span class="material-symbols-outlined text-primary text-[28px]" aria-hidden="true">account_circle</span>
+</div>
+</div>
+</header>
+<!-- TopAppBar (Mobile) -->
+<header class="md:hidden relative bg-background w-full top-0 sticky flex justify-center items-center px-container-margin py-stack-md z-50">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">NagarSetu</h1>
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden editorial-shadow">
+<span class="material-symbols-outlined text-primary text-[28px]" aria-hidden="true">account_circle</span>
+</div>
+</header>
+<main class="max-w-[1140px] mx-auto px-container-margin py-stack-lg">
+<!-- Welcome -->
+<section class="flex flex-col md:flex-row justify-between items-start md:items-end mb-stack-lg gap-4">
+<div>
+<p class="font-label-md text-label-md text-outline mb-unit uppercase tracking-wider">Good Morning</p>
+<h2 id="citizen-welcome" class="font-display-lg text-display-lg text-on-background">Welcome back</h2>
+</div>
+</section>
+<!-- Primary Action -->
+<section class="mb-stack-lg">
+<button class="w-full md:w-auto bg-primary text-on-primary font-label-md text-label-md px-8 py-4 rounded-xl editorial-shadow interactive-element flex items-center justify-center gap-3 transition-all duration-200 hover:bg-primary-container hover:text-on-primary-container" onclick="location.href='report.html'" type="button">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                Report an Issue
+            </button>
+</section>
+<!-- Recent Reports Bento Grid -->
+<section>
+<div class="flex justify-between items-center mb-stack-md">
+<h3 class="font-headline-md text-headline-md text-on-background" id="recent-reports">Recent Reports</h3>
+<a class="font-label-sm text-label-sm text-primary hover:underline" href="#recent-reports">View All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-12 rounded-2xl border border-outline-variant/30 bg-surface-container-lowest p-6 text-sm text-on-surface-variant">Loading your saved reports...</div>
+<article class="md:col-span-12 bg-surface-container border-2 border-primary/20 rounded-2xl p-6 editorial-shadow flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+<div><h4 class="font-headline-md text-headline-md text-primary mb-2">Follow public accountability</h4><p class="font-body-md text-body-md text-on-surface-variant">See published authority responses, commitments, evidence and verification records across NagarSetu.</p></div>
+<a href="../public.html" class="font-label-md text-label-md text-primary border border-primary px-6 py-3 rounded-lg hover:bg-primary/10 transition-colors">Open public records</a>
+</article>
+</div>
+</section>
+</main>
+<!-- Menu and interaction handlers -->
+<script>
+// Menu button handlers
+document.getElementById("desktop-menu-btn")?.addEventListener("click", function(e) {
+  e.stopPropagation();
+});
+
+document.getElementById("mobile-menu-btn")?.addEventListener("click", function(e) {
+  e.stopPropagation();
+});
+</script>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-surface-container-low shadow-[0_-4px_20px_rgba(69,4,50,0.08)] z-50 rounded-t-xl">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-5 py-1 active:scale-90 transition-transform duration-150" href="dashboard.html">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-[10px] mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-fixed/20 active:scale-90 transition-transform duration-150 px-5 py-1 rounded-full" href="#recent-reports">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-label-sm text-[10px] mt-1">Reports</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-fixed/20 active:scale-90 transition-transform duration-150 px-5 py-1 rounded-full" href="verify-fix.html">
+<span class="material-symbols-outlined" data-icon="task_alt">task_alt</span>
+<span class="font-label-sm text-[10px] mt-1">Verify</span>
+</a>
+</nav>
+<script src="../assets/js/api.js"></script>
+</body></html>
