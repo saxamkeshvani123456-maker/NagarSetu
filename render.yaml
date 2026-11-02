@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: nagarsetu-api
+    runtime: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn app.main:app --app-dir backend --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: FRONTEND_ORIGIN
+        sync: false
+      - key: DEMO_MODE
+        value: "false"
+      - key: CIVICLENS_DATA_DIR
+        value: /var/data
+    disk:
+      name: nagarsetu-data
+      mountPath: /var/data
+      sizeGB: 1

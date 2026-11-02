@@ -39,6 +39,7 @@ cors_origins = [origin.strip() for origin in os.getenv("FRONTEND_ORIGIN", "http:
 app.add_middleware(
     CORSMiddleware,
     allow_origins=cors_origins,
+    allow_origin_regex=r"https://[a-z0-9-]+\.netlify\.app$|https://[a-z0-9-]+\.netlify\.app:\d+$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

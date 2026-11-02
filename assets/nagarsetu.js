@@ -2,8 +2,9 @@
   const esc = (value = '') => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
   const pretty = value => String(value || 'reported').replaceAll('_', ' ').replace(/\b\w/g, char => char.toUpperCase());
   const statusName = value => ({ resolution_claimed: 'Resolution claimed', independently_verified: 'Independently verified', citizen_confirmed: 'Citizen confirmed · not independently verified', independently_not_verified: 'Independent review did not verify resolution', not_verified: 'Not verified', response_published: 'Response published', under_review: 'Under review' })[value] || pretty(value);
+  const API_BASE = (window.CIVICLENS_API_BASE || localStorage.getItem('civiclens_api_base') || '').replace(/\/$/, '');
   const api = async path => {
-    const response = await fetch(path);
+    const response = await fetch(API_BASE + path);
     if (!response.ok) throw new Error(`Public record unavailable (${response.status})`);
     return response.json();
   };

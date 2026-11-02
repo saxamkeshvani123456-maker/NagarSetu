@@ -1,18 +1,14 @@
-# Netlify Configuration for CivicLens
-# Place this file in your project root
+# Netlify configuration for the static CivicLens frontend.
+# The FastAPI backend is deployed separately (see render.yaml).
 
 [build]
-  # Install Python dependencies
-  command = "pip install -r backend/requirements.txt && echo 'Build complete'"
-  # Functions directory (serverless backend)
-  functions = "backend"
-  # Publish directory (frontend files)
+  command = "sh ./netlify-build.sh"
   publish = "."
 
-# Environment variables (set these in Netlify Dashboard)
+# Set CIVICLENS_API_BASE in the Netlify Dashboard to the public URL of the
+# deployed FastAPI service, for example https://nagarsetu-api.onrender.com.
 [build.environment]
-  PYTHON_VERSION = "3.11"
-  PIP_CACHE_DIR = ".netlify/cache/pip"
+  CIVICLENS_API_BASE = "https://nagarsetu-l2r8.onrender.com"
 
 # Development settings
 [dev]
@@ -21,13 +17,6 @@
   port = 8000
   # Also serve frontend
   framework = "#custom"
-
-# Redirect all /api/* requests to backend
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/main/:splat"
-  status = 200
-  force = false
 
 # Cache headers for static assets
 [[headers]]

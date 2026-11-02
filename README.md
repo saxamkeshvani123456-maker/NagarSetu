@@ -55,6 +55,16 @@ NagarSetu currently has no municipal open-data feed configured. Its public data 
 
 ## API additions
 
+## Deployment
+
+Deploy the backend as a Python web service and the frontend as a Netlify static site:
+
+1. Create a Render service from `render.yaml`. Its health check is `/api/health`.
+2. In Netlify, set `CIVICLENS_API_BASE` to the Render service URL, such as `https://nagarsetu-api.onrender.com`.
+3. Set the backend `FRONTEND_ORIGIN` to the exact Netlify site URL, then redeploy both services.
+
+The frontend and backend cannot be deployed as one Netlify site with the old configuration: Netlify does not turn `backend/app/main.py` into a function merely by installing Python dependencies.
+
 - `GET /api/public/overview` — stored report metrics and category totals.
 - `GET /api/public/incidents` — public incident list; accepts `category` and `status` filters.
 - `GET /api/public/incidents/{tracking_id}` — public detail, timeline, official statements and verification records.

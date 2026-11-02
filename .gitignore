@@ -24,6 +24,7 @@ ENV/
 # Environment / secrets
 # =========================
 .env
+assets/js/deployment-config.js
 .env.*
 !.env.example
 
